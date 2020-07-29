@@ -8,7 +8,7 @@
 <script src="./input/jquery-3.4.1.min.js"></script>
 </head>
 <?php
-include "./input/base2.php";
+include "./input/baseX.php";
 
 ?>
 <body>
@@ -52,6 +52,6 @@ if(file_exists($file)){
 ?>
 </div>
 <div id="bottom" style="line-height:70px;background:url(img/bot.png); color:#FFF;" class="ct">
-<?php echo $bottom->find(1)['text'];?></div>
+<?php echo findAll('bottom',1,'')[0]['text'];?></div>
 </div>
 </body></html>

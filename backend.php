@@ -1,5 +1,5 @@
 <?php
-include "./input/base2.php";
+include "./input/baseX.php";
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -25,7 +25,7 @@ include "./input/base2.php";
 <div style="min-height:400px;">
 <a href="?do=admin">管理權限設置</a>
 <a href="?do=th">商品分類與管理</a>
-<a href="?do=order">訂單管理</a>
+<a href="?do=ord">訂單管理</a>
 <a href="?do=mem">會員管理</a>
 <a href="?do=bot">頁尾版權管理</a>
 <a href="?do=news">最新消息管理</a>
@@ -35,7 +35,7 @@ include "./input/base2.php";
 <div id="right">
 <?php
 $do=(!empty($_GET['do']))?$_GET['do']:"back";
-$file="./tool/".$do.".php";
+$file="./bool/".$do.".php";
 if(file_exists($file)){
     include_once $file;
 }else{
@@ -49,7 +49,7 @@ if(file_exists($file)){
 ?>
 </div>
 <div id="bottom" style="line-height:70px; color:#FFF; background:url(img/bot.png);" class="ct">
-頁尾版權 :        </div>
+<?php echo findAll('bottom',1,'')[0]['text'];?></div>
 </div>
 
 </body></html>

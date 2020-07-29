@@ -4,7 +4,7 @@ session_start();
 
 class DB{
 
-private $dns="mysql::host=localhost;charset=utf8;dbname=db04";
+private $dns="mysql:host=localhost;charset=utf8;dbname=db04";
     
     public function __construct($table){
         $this->table=$table;
