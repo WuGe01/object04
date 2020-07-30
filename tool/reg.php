@@ -58,9 +58,10 @@ function reg() {
         if(e==1 ||acc == 'admin'){
             alert("該帳號已經被註冊");
         }else{
-            $.post("./api/chk_reg.php",{acc,mil,addr,pw,name,tel},(k)=>{
+            $.post("./api/chk_reg.php?do=user",{acc,mil,addr,pw,name,tel},(k)=>{
                 alert("註冊成功歡迎加入");
-                 location.replace("?do=login");
+                console.log(k)
+                //  location.replace("?do=login");
             })
         }
     })

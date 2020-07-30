@@ -25,7 +25,7 @@ include "./input/baseX.php";
 <a href="?do=buycart">購物車</a> 
 <?php
 if(!empty($_SESSION['user'])){
-    echo "|<a href='backend.php?do=loginout&&from=user'>會員登出</a> ";
+    echo "|<a href='index.php?do=Floginout&&from=user'>會員登出</a> ";
 }else{
     echo "|<a href='?do=login'>會員登入</a>";
 }

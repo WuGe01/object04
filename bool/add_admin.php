@@ -1,4 +1,4 @@
-<h2 class="ct">新增管帳號</h2>
+<h2 class="ct">新增管理帳號</h2>
 <form action="./api/add_admin.php"  method="post">
 <table class="all">    
     <tr>

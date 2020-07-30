@@ -4,11 +4,11 @@ if($_SESSION['ans']==$_GET['chk']){
     switch ($_GET['table']) {
         case 'admin':
             $acc=$admin->count($_POST); 
-            $_SESSION['admin']=1;
+            $_SESSION['admin']=$_POST['acc'];
             break;
         case 'user':
             $acc=$user->count($_POST); 
-            $_SESSION['user']=1;
+            $_SESSION['user']=$_POST['acc'];
             break;
     }
     if($acc==1){

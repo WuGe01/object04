@@ -15,13 +15,14 @@ $chk=json_decode($a['sh']);
 ?>
 <tr class="pp">
     <td><?=$a['acc'];?></td>
-    <td><?=$a['pw'];?></td>
+    <td><?=str_repeat('*',strlen($a['pw']));?></td>
     <td>
 <?php    
 if($a['acc']=='admin'){
 echo "此帳號為最高權限";
 }else{
-echo "<input type='button' value='修改' onclick='editAdmin(".$a['id'].")'><input type='button' value='刪除'>";
+echo "<input type='button' value='修改' onclick='editAdmin(".$a['id'].")'>";
+echo "<input type='button' value='刪除' onclick='del(".$a['id'].")'>";
 }    
 ?>    
 </td>
@@ -30,6 +31,8 @@ echo "<input type='button' value='修改' onclick='editAdmin(".$a['id'].")'><inp
 }
 ?>
 </table>
+<input type="hidden" name="table" value="admin">
+<div class="ct"><input type="button" value="返回" onclick='location.replace("?")'></div>
 <script>
 function goAdmin() {
     location.replace("?do=add_admin");
