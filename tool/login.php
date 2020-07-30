@@ -30,7 +30,7 @@ function login() {
     let chk=$("input[name='chk']").val();
     let acc=$("input[name='acc']").val();
     let pw=$("input[name='pw']").val();
-        $.post(`./api/chk_ans.php?chk=${chk}`,{acc,pw},(e)=>{
+        $.post(`./api/chk_ans.php?chk=${chk}&table=user`,{acc,pw},(e)=>{
             console.log(e)
             alert(e);
         })    

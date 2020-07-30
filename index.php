@@ -22,9 +22,19 @@ include "./input/baseX.php";
 <a href="index.php">回首頁</a> |
 <a href="?do=news">最新消息</a> |
 <a href="?do=look">購物流程</a> |
-<a href="?do=buycart">購物車</a> |
-<a href="?do=login">會員登入</a> |
-<a href="?do=admin">管理登入</a>
+<a href="?do=buycart">購物車</a> 
+<?php
+if(!empty($_SESSION['user'])){
+    echo "|<a href='backend.php?do=loginout&&from=user'>會員登出</a> ";
+}else{
+    echo "|<a href='?do=login'>會員登入</a>";
+}
+if(!empty($_SESSION['admin'])){
+    echo "|<a href='backend.php'>返回管理</a> ";
+}else{
+    echo "|<a href='?do=admin'>管理登入</a>";
+}
+?>
 </div>
 <marquee>
     年終特賣會開跑了 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;情人節特惠活動

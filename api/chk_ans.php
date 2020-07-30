@@ -1,8 +1,16 @@
 <?php
 include_once "../input/base2.php";
-
 if($_SESSION['ans']==$_GET['chk']){
-    $acc=$user->count($_POST['acc']);   
+    switch ($_GET['table']) {
+        case 'admin':
+            $acc=$admin->count($_POST); 
+            $_SESSION['admin']=1;
+            break;
+        case 'user':
+            $acc=$user->count($_POST); 
+            $_SESSION['user']=1;
+            break;
+    }
     if($acc==1){
         echo "登入成功";
     }else{

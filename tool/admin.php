@@ -21,4 +21,16 @@
         <input type="text" name="chk"></td>
     </tr>
 </table>
-<div class="ct"><input type="submit" value="確認"></div>
+<div class="ct"><input type="button" value="確認" onclick="login()"></div>
+<script>
+function login() {
+    let chk=$("input[name='chk']").val();
+    let acc=$("input[name='acc']").val();
+    let pw=$("input[name='pw']").val();
+        $.post(`./api/chk_ans.php?chk=${chk}&table=admin`,{acc,pw},(e)=>{
+            console.log(e)
+            alert(e);
+            location.replace('backend.php')
+        })    
+}
+</script>
