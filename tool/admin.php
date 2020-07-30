@@ -28,9 +28,8 @@ function login() {
     let acc=$("input[name='acc']").val();
     let pw=$("input[name='pw']").val();
         $.post(`./api/chk_ans.php?chk=${chk}&table=admin`,{acc,pw},(e)=>{
-            console.log(e)
             alert(e);
-            location.replace('backend.php')
+            if(e=="登入成功")location.replace('backend.php')
         })    
 }
 </script>

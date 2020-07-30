@@ -57,4 +57,24 @@ function q($a){
 function to($a){
     header("location:".$a);
 }
+function all($table,...$arg)
+    {
+        global $pdo;
+        $sql = "select * from $table ";
+    
+        if (!empty($arg[0]) && is_array($arg[0])) {
+            foreach ($arg[0] as $key => $value) {
+                $tmp[] = sprintf("`%s`='%s'", $key, $value);
+            }
+    
+            $sql = $sql . " where " . implode(" && ", $tmp);
+        }
+    
+        if (!empty($arg[1])) {
+            $sql = $sql . $arg[1];
+        }
+        return $pdo->query($sql)->fetchAll();
+    
+        // echo $sql;
+    }
 ?>
