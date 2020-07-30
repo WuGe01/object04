@@ -25,7 +25,7 @@ include "./input/baseX.php";
 <div style="min-height:400px;">
 <a href="?do=admin">管理權限設置</a>
 <?php
-$kk=all('admin',[]);
+$kk=all('admin',['acc'=>$_SESSION['admin']]);
 $ksh=json_decode($kk[0]['sh']);
 if(in_array(1,$ksh))echo "<a href='?do=th'>商品分類與管理</a>";
 if(in_array(2,$ksh))echo "<a href='?do=ord'>訂單管理</a>";
