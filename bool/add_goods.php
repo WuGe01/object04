@@ -1,3 +1,4 @@
+
 <h2 class="ct">商品管理 </h2>
 <div style="height:400px;overflow: auto;">
 <form action="./api/all_save.php?table=goods&to=add_goods" method="post" enctype="multipart/form-data">

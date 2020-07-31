@@ -26,12 +26,12 @@ $a=($r['sh']==1)?'上架':'下架';
     <td><?=$r['no'];?></td>
     <td><?=$r['name'];?></td>
     <td><?=$r['stock'];?></td>
-    <td><?=$a;?></td>
+    <td id="sh_taget<?=$r['id'];?>"><?=$a;?></td>
     <td>
-    <input type="button" value="修改">
-    <input type="button" value="刪除">
-    <input type="button" value="上架">
-    <input type="button" value="下架">    
+    <input type="button" value="修改"  onclick="location.href='?do=edit_goods&id=<?=$r['id'];?>'">
+    <input type="button" value="刪除"  onclick="del(<?=$r['id'];?>)'">
+    <input type="button" value="上架" onclick="sh(<?=$r['id'];?>,1)">
+    <input type="button" value="下架" onclick="sh(<?=$r['id'];?>,2)">    
 
     </td>
 </tr>
@@ -42,4 +42,17 @@ $a=($r['sh']==1)?'上架':'下架';
 </div>
 <script>
 get_list()
+
+function sh(id,e) {
+    $.post(`./api/show.php?do=${e}`,{id},()=>{
+        switch (e) {
+            case 1:
+                $(`#sh_taget${id}`).html("上架")
+                break;
+            case 2:
+                $(`#sh_taget${id}`).html("下架")
+                break;
+        }
+    })
+}
 </script>
