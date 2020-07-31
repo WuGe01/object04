@@ -39,12 +39,12 @@ if(in_array(5,$ksh))echo "<a href='?do=news'>最新消息管理</a>";
 </div>
 <div id="right">
 <?php
-$do=(!empty($_GET['do']))?$_GET['do']:"back";
+$do=(!empty($_GET['do']))?$_GET['do']:"admin";
 $file="./bool/".$do.".php";
 if(file_exists($file)){
     include_once $file;
 }else{
-    include_once './bool/back.php';
+    include_once './bool/admin.php';
 }
 
 

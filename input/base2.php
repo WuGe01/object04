@@ -67,6 +67,7 @@ private $dns="mysql:host=localhost;charset=utf8;dbname=db04";
             $s="insert into $this->table (`" .join("`,`",array_keys($a)) ."`) values ('" . join("','",$a) . "')";
         }
         return $this->pdo->exec($s);
+        // echo $s;
     }
     //半小時打到這
     public function del($arg)
