@@ -25,7 +25,7 @@ include "./input/baseX.php";
 <a href="?do=buycart">購物車</a> 
 <?php
 if(!empty($_SESSION['user'])){
-    echo "|<a href='index.php?do=Floginout&&from=user'>會員登出</a> ";
+    echo "|<a href='index.php?do=Flogout'>會員登出</a> ";
 }else{
     echo "|<a href='?do=login'>會員登入</a>";
 }
@@ -46,12 +46,12 @@ if(!empty($_SESSION['admin'])){
 <?php
 $bigs=all('type',['parent'=>0]);
 
-echo "<a href=''>全部商品(".co('goods',['sh'=>1]).")</a>";
+echo "<a href='?'>全部商品(".co('goods',['sh'=>1]).")</a>";
 foreach ($bigs as $b) {
-    echo "<div class='ww'><a href=''>".$b['name']."(".co('goods',['big'=>$b['id'],'sh'=>1]).")</a>";
+    echo "<div class='ww'><a href='?parent=".$b['parent']."&type=".$b['id']."'>".$b['name']."(".co('goods',['big'=>$b['id'],'sh'=>1]).")</a>";
     $mid=all('type',['parent'=>$b['id']]);
     foreach ($mid as $m) {
-        echo "<div class='s'><a href=''>".$m['name']."(".co('goods',['mid'=>$m['id'],'sh'=>1]).")</a></div>";
+        echo "<div class='s'><a href='?parent=".$m['parent']."&type=".$m['id']."'>".$m['name']."(".co('goods',['mid'=>$m['id'],'sh'=>1]).")</a></div>";
     }
     echo "</div>";
 }

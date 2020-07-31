@@ -1,1 +1,16 @@
-購物資訊
+<?php
+if(!empty($_SESSION['user'])){
+
+
+
+
+
+
+
+
+
+
+}else{
+to("?do=login");
+}
+?>
