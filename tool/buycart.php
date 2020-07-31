@@ -34,7 +34,7 @@ foreach ($_SESSION['cart'] as $key => $value) {
     <td><?=$good['stock'];?></td>
     <td><?=$good['price'];?></td>
     <td><?=$good['price']*$value;?></td>
-    <td><img src="./img/0415.jpg" alt=""></td>
+    <td><img src="./img/0415.jpg" onclick=""></td>
 </tr>
 <?php
 }
@@ -45,3 +45,7 @@ foreach ($_SESSION['cart'] as $key => $value) {
 to("?do=login");
 }
 ?>
+<script>
+
+    
+</script>
