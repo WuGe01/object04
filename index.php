@@ -43,6 +43,22 @@ if(!empty($_SESSION['admin'])){
 </div>
 <div id="left" class="ct">
 <div style="min-height:400px;">
+<?php
+$bigs=all('type',['parent'=>0]);
+
+echo "<a href=''>全部商品(".co('goods',['sh'=>1]).")</a>";
+foreach ($bigs as $b) {
+    echo "<div class='ww'><a href=''>".$b['name']."(".co('goods',['big'=>$b['id'],'sh'=>1]).")</a>";
+    $mid=all('type',['parent'=>$b['id']]);
+    foreach ($mid as $m) {
+        echo "<div class='s'><a href=''>".$m['name']."(".co('goods',['mid'=>$m['id'],'sh'=>1]).")</a></div>";
+    }
+    echo "</div>";
+}
+?>
+
+<div>
+</div>
 </div>
 <span>
 <div>進站總人數</div>

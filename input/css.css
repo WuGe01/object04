@@ -35,6 +35,10 @@ body
 	margin:10px auto 10px auto;
 	color:#65350A;
 }
+#left .s a
+{
+	background:#dbd4cc;
+}
 .ct
 {
 	text-align:center;

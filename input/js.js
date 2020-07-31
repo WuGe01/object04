@@ -9,6 +9,12 @@ function del(id) {
         location.reload()
     })
 }
+function del2(id) {
+    let table=$("input[name='table2']").val();
+    $.post("./api/del.php",{table,id},()=>{
+        location.reload()
+    })
+}
 function edit_th(e) {
     let id=$(e).next().val()
     let oldname=$(e).parent('td').prev().html()

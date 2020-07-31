@@ -57,6 +57,21 @@ function q($a){
 function to($a){
     header("location:".$a);
 }
+function co($table,...$a){
+    global $pdo;
+    $s="select count(*) from $table ";
+    if(!empty($a[0]) && is_array($a[0])){
+        foreach ($a[0] as $key => $value) {
+            $t[]=sprintf("`%s`='%s'",$key,$value);
+        }
+        $s=$s . " where " .join("&&",$t);
+    }
+    if(!empty($a[1])){
+        $s=$s.$a[1];
+    }
+    // echo $s;
+    return $pdo->query($s)->fetchColumn();
+}  
 function all($table,...$arg)
     {
         global $pdo;
@@ -77,4 +92,5 @@ function all($table,...$arg)
     
         // echo $sql;
     }
+
 ?>

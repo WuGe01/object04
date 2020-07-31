@@ -1,5 +1,6 @@
 <div style="height: 550px;overflow: auto;">
 <input type="hidden" name="table" value="type">
+<input type="hidden" name="table2" value="goods">
 <h2 class="ct">商品分類管理 </h2>
 <div class="ct">新增大分類:<input type="text" name="big" id=""> <input type="button" value="新增" onclick="addbig()"></div>
 <div class="ct">新增中分類:<select name="mid" id="" >
@@ -29,7 +30,7 @@ $a=($r['sh']==1)?'上架':'下架';
     <td id="sh_taget<?=$r['id'];?>"><?=$a;?></td>
     <td>
     <input type="button" value="修改"  onclick="location.href='?do=edit_goods&id=<?=$r['id'];?>'">
-    <input type="button" value="刪除"  onclick="del(<?=$r['id'];?>)'">
+    <input type="button" value="刪除"  onclick="del2(<?=$r['id'];?>)">
     <input type="button" value="上架" onclick="sh(<?=$r['id'];?>,1)">
     <input type="button" value="下架" onclick="sh(<?=$r['id'];?>,2)">    
 
