@@ -33,6 +33,7 @@ function login() {
         $.post(`./api/chk_ans.php?chk=${chk}&table=user`,{acc,pw},(e)=>{
             console.log(e)
             alert(e);
+            to("./index.php");
         })    
 }
 </script>

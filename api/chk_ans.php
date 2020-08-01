@@ -16,7 +16,7 @@ if($_SESSION['ans']==$_GET['chk']){
                 break;
         }
         echo "登入成功";
-        to("./index.php");
+        
     }else{
         echo "帳號錯誤";
     }

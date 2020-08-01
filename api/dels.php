@@ -1,6 +1,5 @@
 <?php
 include_once "../input/base2.php";
-$user->save($_POST);
-
+unset($_SESSION['cart'][$_POST['id']]);
 
 ?>

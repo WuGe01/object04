@@ -34,7 +34,7 @@ foreach ($_SESSION['cart'] as $key => $value) {
     <td><?=$good['stock'];?></td>
     <td><?=$good['price'];?></td>
     <td><?=$good['price']*$value;?></td>
-    <td><img src="./img/0415.jpg" onclick=""></td>
+    <td><img src="./img/0415.jpg" onclick="dels(<?=$key;?>)"></td>
 </tr>
 <?php
 }
@@ -46,6 +46,10 @@ to("?do=login");
 }
 ?>
 <script>
-
+function dels(id) {
+    $.post("./api/dels.php",{id},()=>{
+        location.reload()
+    })
+}
     
 </script>

@@ -61,6 +61,7 @@ function reg() {
             $.post("./api/chk_reg.php?do=user",{acc,mil,addr,pw,name,tel},(k)=>{
                 alert("註冊成功歡迎加入");
                 console.log(k)
+                to("../index.php");
                 //  location.replace("?do=login");
             })
         }
