@@ -67,6 +67,6 @@ function dels(id) {
 <?php
 
 }else{
-    echo "請選擇購物";
+    echo "<h2 class='ct'>請選擇購物</h2>";
 }
 ?>
