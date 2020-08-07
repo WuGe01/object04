@@ -72,6 +72,27 @@ function co($table,...$a){
     // echo $s;
     return $pdo->query($s)->fetchColumn();
 }  
+function find($table,$arg)
+    {
+        global $pdo;
+        $sql = "select * from $table ";
+    
+        if (is_array($arg)) {
+            foreach ($arg as $key => $value) {
+                $tmp[] = sprintf("`%s`='%s'", $key, $value);
+            }
+    
+            $sql = $sql . " where " . implode(" && ", $tmp);
+        }else{
+            $sql .=$arg;
+        }
+    
+
+        
+        return $pdo->query($sql)->fetch();
+    
+        // echo $sql;
+    }
 function all($table,...$arg)
     {
         global $pdo;

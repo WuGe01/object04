@@ -48,7 +48,9 @@ body
 	display:inline-block;
 	width:65%;
 	padding:2%;
-	min-height:550px;
+	/* min-height:550px; */
+	overflow: auto;
+	height: 550px;
 	border:#000 1px solid;
 }
 #bottom

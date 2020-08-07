@@ -1,4 +1,7 @@
 <?php
+
+
+
 if(!empty($_GET['qt']) && !empty($_GET['id'])){
     if(!empty( $_SESSION['cart'][$_GET['id']])){
         $TMPNUMBER=$_SESSION['cart'][$_GET['id']]*1+$_GET['qt']*1;
@@ -7,6 +10,7 @@ if(!empty($_GET['qt']) && !empty($_GET['id'])){
         $_SESSION['cart'][$_GET['id']]=$_GET['qt'];
     }
 }
+if(!empty($_SESSION['cart']) || !isset($_SESSION['cart'])){
 if(!empty($_SESSION['user'])){
 // print_r($_SESSION['cart']);
 
@@ -24,6 +28,9 @@ if(!empty($_SESSION['user'])){
 </tr>
 <?php
 foreach ($_SESSION['cart'] as $key => $value) {
+    if(co('goods',['id'=>$key])>0){
+        
+    
     $good=all('goods',['id'=>$key])[0];
 
 ?>
@@ -37,7 +44,7 @@ foreach ($_SESSION['cart'] as $key => $value) {
     <td><img src="./img/0415.jpg" onclick="dels(<?=$key;?>)"></td>
 </tr>
 <?php
-}
+}}
 ?>
 </table>
 <?php
@@ -45,11 +52,21 @@ foreach ($_SESSION['cart'] as $key => $value) {
 to("?do=login");
 }
 ?>
+<div class="ct">
+<a href="index.php"><img src="./img/0411.jpg" alt=""></a>
+<a href="index.php?do=pay"><img src="./img/0412.jpg" alt=""></a>
+</div>
 <script>
 function dels(id) {
     $.post("./api/dels.php",{id},()=>{
-        location.reload()
+        location.replace("?do=buycart")
     })
 }
     
 </script>
+<?php
+
+}else{
+    echo "請選擇購物";
+}
+?>
